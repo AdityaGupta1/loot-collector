@@ -1,0 +1,5 @@
+= Loot Collector
+
+Loot Collector is a 2D bullet hell game I made for my final project in my CS class at Bellarmine College Preparatory.
+
+Try it out http://cs.bcp.org/cozort/ecs/cozfall16/gupta_aditya/loot_collector/[here]!
