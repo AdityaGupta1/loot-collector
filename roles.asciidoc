@@ -1,0 +1,42 @@
+= Roles
+
+This page defines what the client and server do so nothing gets confused.
+
+== Client
+
+=== Sends
+
+* Player position and bullet fire events
+
+=== Receives
+
+* Player, bullet, and enemy positions
+* Text creation events
+
+=== Processes
+
+* Bullet position, velocity, and collisions
+
+=== Does
+
+* Renders players, bullets, and enemies
+
+== Server
+
+=== Sends
+
+* Player, bullet, and enemy positions
+* Text creation events
+
+=== Receives
+
+* Player position and bullet fire events
+
+=== Processes
+
+* Collisions
+* Damage events
+
+=== Does
+
+* Processing and message handling
