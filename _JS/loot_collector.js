@@ -179,9 +179,6 @@ function create() {
         roundState = 'enemies';
         startRound();
     }, 5000);
-
-    // play some dank music
-    document.getElementById('dank-music').play();
 }
 
 /**
