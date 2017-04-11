@@ -1,0 +1,34 @@
+{
+  "name": "loot-collector",
+  "version": "1.0.0",
+  "description": "A 2D bullet hell game",
+  "main": "index.html",
+  "dependencies": {
+    "debug": "^2.6.3",
+    "is-typedarray": "^1.0.0",
+    "ms": "^0.7.3",
+    "nan": "^2.5.1",
+    "typedarray-to-buffer": "^3.1.2",
+    "websocket": "^1.0.24",
+    "yaeti": "0.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node _JS/server.js",
+    "start": "node _JS/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdityaGupta1/loot-collector.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "websocket"
+  ],
+  "author": "Aditya Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdityaGupta1/loot-collector/issues"
+  },
+  "homepage": "https://github.com/AdityaGupta1/loot-collector#readme"
+}
