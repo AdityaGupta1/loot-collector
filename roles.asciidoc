@@ -6,29 +6,38 @@ This page defines what the client and server do so nothing gets confused.
 
 === Sends
 
-* *This* player's information
+* *Local* player's information
 
 === Receives
 
 * *Other* players' information (for rendering *only*)
+* Enemy information (for collisions and damage detection)
+** Enemy bullets are stationary objects that update very quickly
+** Only server controls enemy bullet positions
 
 === Processes
 
-* *This* player's bullet fires, collisions, and damage events
+* *Local* player's bullet fires, collisions, and damage events
 
 === Does
 
 * Renders *other* players' information without processing it
+* Renders enemies and enemy damage events
 
 == Server
 
 === Sends
 
 * *All* player information
+* *All* enemy and enemy bullet information
 
 === Receives
 
 * *Individual* players' information
+
+=== Processes
+
+* Enemies, enemy bullets
 
 === Does
 
