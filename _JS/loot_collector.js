@@ -12,6 +12,8 @@ var game = new Phaser.Game(canvasWidth, canvasHeight, Phaser.AUTO, 'loot-collect
 // sprites
 var player;
 var playerBullets;
+var otherPlayerPositions = {};
+var otherPlayerActors;
 var enemies;
 
 // title screen text
@@ -137,6 +139,8 @@ function create() {
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
     createPlayerBullets();
+
+    createOtherPlayers();
 
     // bind keys
     wKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
@@ -273,6 +277,10 @@ function update() {
         roundState = 'between';
         setTimeout(startRound, 5000);
     }
+
+    // send player position to other clients and draw other players
+    sendUpdate();
+    drawOtherPlayers();
 }
 
 /**

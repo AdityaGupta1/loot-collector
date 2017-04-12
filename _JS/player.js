@@ -6,21 +6,23 @@ function playerShoot() {
         return;
     }
 
-    if (game.time.now > nextFire && playerBullets.countDead() > 0 && player.alive) {
-        nextFire = game.time.now + fireRate;
-        // get first dead bullet from pool
-        var bullet = playerBullets.getFirstDead();
-        // revive bullet
-        bullet.reset(player.x + (player.width / 2), player.y + (player.height / 2
-            ));
-        // point towards mouse and start moving
-        game.physics.arcade.moveToPointer(bullet, 300);
-        // fix rotation
-        bullet.anchor.set(0.5);
-        // radians, not degrees
-        bullet.rotation = game.physics.arcade.angleToPointer(bullet) + (pi / 4);
-        game.world.sendToBack(bullet);
+    if (game.time.now <= nextFire || playerBullets.countDead() <= 0 || !player.alive) {
+        return;
     }
+
+    nextFire = game.time.now + fireRate;
+    // get first dead bullet from pool
+    var bullet = playerBullets.getFirstDead();
+    // revive bullet
+    bullet.reset(player.x + (player.width / 2), player.y + (player.height / 2
+        ));
+    // point towards mouse and start moving
+    game.physics.arcade.moveToPointer(bullet, 300);
+    // fix rotation
+    bullet.anchor.set(0.5);
+    // radians, not degrees
+    bullet.rotation = game.physics.arcade.angleToPointer(bullet) + (pi / 4);
+    game.world.sendToBack(bullet);
 }
 
 /**
@@ -201,7 +203,7 @@ function playerDamageHandler(player, enemyBullet) {
 }
 
 /**
- * creates player bullet pool
+ * create player bullet pool
  */
 function createPlayerBullets() {
     // add player bullet group
