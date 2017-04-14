@@ -1,4 +1,4 @@
-var connection = new WebSocket("ws://localhost:8000");
+var connection = new WebSocket("ws://192.168.1.16:8000");
 connection.onopen = function () {
     console.log("connection opened");
 };
@@ -8,6 +8,9 @@ connection.onerror = function (error) {
 };
 
 var username = "";
+
+var updateRate = Math.round(1000/24);
+var nextUpdate = 0;
 
 function connect(name) {
     username = name;
@@ -26,7 +29,12 @@ function connect(name) {
 }
 
 function sendUpdate() {
-    if (username == "") {
+    if (game.time.now <= nextUpdate || !player.alive) {
+        return;
+    }
+    nextUpdate = game.time.now + updateRate;
+
+    if (username === "") {
         console.log("use connect(username) to connect to the server");
         return;
     }
@@ -48,7 +56,7 @@ connection.onmessage = function (message) {
 
     switch (json.type) {
         case "update":
-            if (json.username == username) {
+            if (json.username === username) {
                 return;
             }
 

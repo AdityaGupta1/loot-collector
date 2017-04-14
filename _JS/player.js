@@ -9,8 +9,8 @@ function playerShoot() {
     if (game.time.now <= nextFire || playerBullets.countDead() <= 0 || !player.alive) {
         return;
     }
-
     nextFire = game.time.now + fireRate;
+
     // get first dead bullet from pool
     var bullet = playerBullets.getFirstDead();
     // revive bullet
